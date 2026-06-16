@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tax Service Express | Minimalist Landing</title>
+    <title>Tax Service Express | Modern Tax Preparation, Simplified</title>
+    <meta name="description" content="Experience seamless, secure, fully digital tax preparation for individuals and growing businesses. Book a consultation today.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
-    <header class="site-header">
+    <!-- Grain overlay -->
+    <div class="grain-overlay"></div>
+
+    <header class="site-header" id="site-header">
         <div class="container header-container">
             <div class="brand-logo">
                 <svg width="36" height="28" viewBox="0 0 36 28" fill="currentColor">
@@ -31,83 +35,404 @@
             </div>
             <nav class="main-nav">
                 <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#contact" class="btn-primary">Client Portal</a>
+                <a href="#how-it-works">Process</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact" class="btn-primary nav-cta">Client Portal</a>
             </nav>
         </div>
     </header>
 
     <main>
+        <!-- ═══════════════════════════════════════ -->
+        <!--  HERO: THE LIVING TAX FORM             -->
+        <!-- ═══════════════════════════════════════ -->
         <section class="hero">
+            <div class="hero-form-bg" aria-hidden="true">
+                <div class="form-line">
+                    <span class="form-label">Department of the Treasury — Internal Revenue Service</span>
+                </div>
+                <div class="form-line form-title-line">
+                    <span class="form-number">1040</span>
+                    <span class="form-desc">U.S. Individual Income Tax Return</span>
+                    <span class="form-year">2025</span>
+                </div>
+                <div class="form-line">
+                    <span class="form-label">Your first name and middle initial</span>
+                    <span class="form-value typewriter" data-text="Alex"></span>
+                    <span class="form-label">Last name</span>
+                    <span class="form-value typewriter" data-text="Doe" data-delay="800"></span>
+                </div>
+                <div class="form-line">
+                    <span class="form-label">Home address (number, street, and apt. no.)</span>
+                    <span class="form-value typewriter" data-text="5215 Lovelock St" data-delay="1600"></span>
+                </div>
+                <div class="form-line">
+                    <span class="form-label">City, town or post office</span>
+                    <span class="form-value typewriter" data-text="San Diego" data-delay="2200"></span>
+                    <span class="form-label">State</span>
+                    <span class="form-value typewriter" data-text="CA" data-delay="2800"></span>
+                    <span class="form-label">ZIP</span>
+                    <span class="form-value typewriter" data-text="92105" data-delay="3000"></span>
+                </div>
+                <div class="form-line">
+                    <span class="form-label">Filing Status</span>
+                    <span class="form-checkbox checked" data-delay="3400">☐</span>
+                    <span class="form-value">Single</span>
+                    <span class="form-checkbox" data-delay="3400">☐</span>
+                    <span class="form-value">Married filing jointly</span>
+                </div>
+                <div class="form-line">
+                    <span class="form-label">1. Wages, salaries, tips (W-2)</span>
+                    <span class="form-value form-amount counter" data-target="78450" data-delay="3800">$0</span>
+                </div>
+                <div class="form-line">
+                    <span class="form-label">8. Adjusted gross income</span>
+                    <span class="form-value form-amount counter" data-target="72100" data-delay="4200">$0</span>
+                </div>
+                <div class="form-line">
+                    <span class="form-label">24. Total tax</span>
+                    <span class="form-value form-amount counter" data-target="9847" data-delay="4600">$0</span>
+                </div>
+                <div class="form-line form-refund-line">
+                    <span class="form-label">35a. Amount you overpaid → REFUND</span>
+                    <span class="form-value form-amount form-refund counter" data-target="2847" data-delay="5000">$0</span>
+                </div>
+            </div>
+
+            <div class="hero-form-bg form-2" aria-hidden="true">
+                <div class="form-line form-title-line">
+                    <span class="form-number">W-2</span>
+                    <span class="form-desc">Wage and Tax Statement</span>
+                    <span class="form-year">2025</span>
+                </div>
+                <div class="form-line">
+                    <span class="form-label">b Employer identification number (EIN)</span>
+                    <span class="form-value typewriter" data-text="XX-XXXXXXX" data-delay="6000"></span>
+                </div>
+                <div class="form-line">
+                    <span class="form-label">1 Wages, tips, other compensation</span>
+                    <span class="form-value typewriter" data-text="78,450.00" data-delay="6500"></span>
+                </div>
+                <div class="form-line">
+                    <span class="form-label">2 Federal income tax withheld</span>
+                    <span class="form-value typewriter" data-text="9,847.00" data-delay="7000"></span>
+                </div>
+            </div>
+
+            <div class="hero-form-bg form-3" aria-hidden="true">
+                <div class="form-line form-title-line">
+                    <span class="form-number">1099-NEC</span>
+                    <span class="form-desc">Nonemployee Compensation</span>
+                    <span class="form-year">2025</span>
+                </div>
+                <div class="form-line">
+                    <span class="form-label">1 Nonemployee compensation</span>
+                    <span class="form-value typewriter" data-text="12,500.00" data-delay="7500"></span>
+                </div>
+                <div class="form-line">
+                    <span class="form-label">4 Federal income tax withheld</span>
+                    <span class="form-value typewriter" data-text="0.00" data-delay="8000"></span>
+                </div>
+            </div>
+
             <div class="container hero-container">
                 <div class="hero-content">
-                    <h1>Modern Tax Preparation.<br>Simplified.</h1>
-                    <p>Experience a seamless, secure, and fully digital tax preparation process designed for individuals and growing businesses.</p>
-                    <div class="hero-actions">
-                        <a href="#book" class="btn-primary large">Book a Consultation</a>
-                        <a href="#learn" class="btn-outline large">Learn More</a>
+                    <div class="hero-text">
+                        <h1>
+                            <span class="hero-line-1 reveal-line">Modern Tax</span>
+                            <span class="hero-line-2 reveal-line">Preparation.</span>
+                            <span class="hero-line-3 reveal-line"><em>Simplified.</em></span>
+                        </h1>
+                        <p class="hero-subtitle reveal-line" style="--delay: 0.6s">We handle the complexity so you don't have to. Secure, digital, and stress-free.</p>
                     </div>
-                </div>
-                <div class="hero-image">
-                    <!-- Minimalist geometric shapes to represent data/security -->
-                    <div class="abstract-shape shape-1"></div>
-                    <div class="abstract-shape shape-2"></div>
-                    <div class="abstract-shape shape-3"></div>
-                </div>
-            </div>
-        </section>
 
-        <section id="services" class="services-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Our Expertise</h2>
-                    <p>Comprehensive tax solutions tailored to your unique financial situation.</p>
-                </div>
-                
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    <!-- Filing Status Tracker -->
+                    <div class="status-tracker reveal-line" style="--delay: 0.9s" id="status-tracker">
+                        <div class="tracker-header">
+                            <span class="tracker-label">Return Status</span>
+                            <span class="tracker-badge">In Progress</span>
                         </div>
-                        <h3>Personal Returns</h3>
-                        <p>Streamlined tax preparation for individuals and families, ensuring you get the maximum return with minimum hassle.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
-                        </div>
-                        <h3>Gig Workers & 1099</h3>
-                        <p>Specialized support for independent contractors, freelancers, and gig economy workers to navigate self-employment taxes.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                        </div>
-                        <h3>LLC & S-Corps</h3>
-                        <p>Strategic tax planning and corporate return filing designed to optimize your business's financial health.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="portal-cta">
-            <div class="container portal-container">
-                <div class="portal-text">
-                    <h2>Everything in one secure place.</h2>
-                    <p>No more digging through emails or lost PDFs. Our unified client portal gives you instant access to your document vault, past returns, and direct messaging with your CPA.</p>
-                </div>
-                <div class="portal-mockup">
-                    <div class="mockup-ui">
-                        <div class="mockup-header"></div>
-                        <div class="mockup-body">
-                            <div class="mockup-bar" style="width: 70%"></div>
-                            <div class="mockup-bar" style="width: 40%"></div>
-                            <div class="mockup-boxes">
-                                <div class="mockup-box"></div>
-                                <div class="mockup-box"></div>
+                        <div class="tracker-body">
+                            <div class="tracker-client">
+                                <div class="client-avatar">AD</div>
+                                <div class="client-info">
+                                    <span class="client-name">Alex Doe</span>
+                                    <span class="client-id">ID: #TSE-2025-8942</span>
+                                </div>
+                            </div>
+                            <div class="tracker-timeline">
+                                <div class="timeline-step completed">
+                                    <div class="step-icon">✓</div>
+                                    <div class="step-content">
+                                        <span class="step-title">Documents Uploaded</span>
+                                        <span class="step-time">Today, 09:14 AM</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-step active">
+                                    <div class="step-icon"></div>
+                                    <div class="step-content">
+                                        <span class="step-title">Expert Tax Consultation</span>
+                                        <span class="step-time">Scheduled — Tomorrow, 10:30 AM</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-step">
+                                    <div class="step-icon"></div>
+                                    <div class="step-content">
+                                        <span class="step-title">Tax Return Finalized</span>
+                                        <span class="step-time">Pending Review</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <a href="#book" class="btn-primary tracker-cta" id="hero-cta-book">
+                            Start Your Return
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-marquee">
+            <div class="marquee-content">
+                <span class="marquee-item">★ 5.0 on Google</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">Trusted Local Experts</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">Fast & Efficient</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">IRS Authorized e-File</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">SOC 2 Compliant</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">256-bit Encryption</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">★ 5.0 on Google</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">Trusted Local Experts</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">Fast & Efficient</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">IRS Authorized e-File</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">SOC 2 Compliant</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">256-bit Encryption</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">★ 5.0 on Google</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">Trusted Local Experts</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">Fast & Efficient</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">IRS Authorized e-File</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">SOC 2 Compliant</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">256-bit Encryption</span><span class="marquee-divider">—</span>
+
+                <span class="marquee-item">★ 5.0 on Google</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">Trusted Local Experts</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">Fast & Efficient</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">IRS Authorized e-File</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">SOC 2 Compliant</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">256-bit Encryption</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">★ 5.0 on Google</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">Trusted Local Experts</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">Fast & Efficient</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">IRS Authorized e-File</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">SOC 2 Compliant</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">256-bit Encryption</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">★ 5.0 on Google</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">Trusted Local Experts</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">Fast & Efficient</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">IRS Authorized e-File</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">SOC 2 Compliant</span><span class="marquee-divider">—</span>
+                <span class="marquee-item">256-bit Encryption</span><span class="marquee-divider">—</span>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <span class="section-tag">Services</span>
+                    <h2>Tax solutions tailored<br>to your situation.</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card fade-in" id="svc-personal">
+                        <div class="service-number">01</div>
+                        <h3>Personal Returns</h3>
+                        <p>Streamlined preparation for individuals and families. Maximum return, minimum hassle.</p>
+                        <ul class="service-features">
+                            <li>Federal + State Filing</li>
+                            <li>Deduction Maximization</li>
+                            <li>Audit Protection</li>
+                        </ul>
+                        <div class="service-footer" style="justify-content: flex-end;">
+                            <span class="service-tag-label">Most Popular</span>
+                        </div>
+                    </div>
+                    <div class="service-card featured fade-in" id="svc-gig">
+                        <div class="service-number">02</div>
+                        <h3>Gig Workers & 1099</h3>
+                        <p>Specialized support for independent contractors, freelancers, and self-employed.</p>
+                        <ul class="service-features">
+                            <li>Everything in Personal</li>
+                            <li>1099 Expense Tracking</li>
+                            <li>Quarterly Estimates</li>
+                            <li>Dedicated CPA</li>
+                        </ul>
+                        <div class="service-footer" style="justify-content: flex-end;">
+                            <span class="service-tag-label best">Best Value</span>
+                        </div>
+                    </div>
+                    <div class="service-card fade-in" id="svc-business">
+                        <div class="service-number">03</div>
+                        <h3>LLC & S-Corps</h3>
+                        <p>Strategic planning and corporate return filing for small business owners.</p>
+                        <ul class="service-features">
+                            <li>Everything in 1099</li>
+                            <li>Business Entity Filing</li>
+                            <li>Tax Strategy Planning</li>
+                            <li>Year-Round Advisory</li>
+                        </ul>
+                        <div class="service-footer" style="justify-content: flex-end;">
+                            <span class="service-tag-label">Enterprise</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how-it-works" class="how-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <span class="section-tag">Process</span>
+                    <h2>Four steps. That's it.</h2>
+                </div>
+                <div class="steps-row">
+                    <div class="step fade-in">
+                        <div class="step-num">01</div>
+                        <h3>Sign Up</h3>
+                        <p>Create your account in 30 seconds. No credit card needed.</p>
+                    </div>
+                    <div class="step-arrow fade-in">→</div>
+                    <div class="step fade-in">
+                        <div class="step-num">02</div>
+                        <h3>Upload</h3>
+                        <p>Securely upload your W-2s, 1099s, and tax forms through our encrypted portal.</p>
+                    </div>
+                    <div class="step-arrow fade-in">→</div>
+                    <div class="step fade-in">
+                        <div class="step-num">03</div>
+                        <h3>Review</h3>
+                        <p>Your dedicated CPA reviews everything and connects via secure messaging.</p>
+                    </div>
+                    <div class="step-arrow fade-in">→</div>
+                    <div class="step fade-in">
+                        <div class="step-num">04</div>
+                        <h3>Refund</h3>
+                        <p>We file your return. Your direct deposit is on the way.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials / Google Reviews -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <span class="section-tag">Google Reviews</span>
+                    <h2>What our clients say.</h2>
+                    <div class="google-rating">
+                        <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        <span class="rating-number">5.0</span>
+                        <span class="rating-stars">★★★★★</span>
+                        <span class="rating-count">· 47 reviews</span>
+                    </div>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-card fade-in" id="review-1">
+                        <div class="review-header">
+                            <div class="review-avatar">F</div>
+                            <div>
+                                <strong>FLORITA LAUSE</strong>
+                                <span class="review-meta">★★★★★ · 7 months ago</span>
+                            </div>
+                            <svg class="google-g" width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                        <p>"Juan & staff are very organized. I have had returns every year so far. Juan is up to date with current knowledge of taxes. Pays attention to detail for best returns.!!"</p>
+                    </div>
+                    <div class="review-card fade-in" id="review-2">
+                        <div class="review-header">
+                            <div class="review-avatar">I</div>
+                            <div>
+                                <strong>Irene Valdez</strong>
+                                <span class="review-meta">★★★★★ · 3 months ago</span>
+                            </div>
+                            <svg class="google-g" width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                        <p>"Juan is the best Tax Person Ever!!! Esmeralda, she is the best ever. I couldn't be more satisfied..The Best Team Ever!"</p>
+                    </div>
+                    <div class="review-card fade-in" id="review-3">
+                        <div class="review-header">
+                            <div class="review-avatar">A</div>
+                            <div>
+                                <strong>Amber Rose</strong>
+                                <span class="review-meta">★★★★★ · a year ago</span>
+                            </div>
+                            <svg class="google-g" width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                        <p>"Juan has been doing my taxes for 20 years! He’s the only one I trust to handle my taxes. He’s worked with me on some of my most challenging tax years and I always appreciate is patience, professionalism, and kindness. 100/10 stars!!"</p>
+                    </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <span class="section-tag">FAQ</span>
+                    <h2>Common questions.</h2>
+                </div>
+                <div class="faq-list fade-in">
+                    <div class="faq-item" id="faq-1">
+                        <button class="faq-q" onclick="toggleFaq(this)">
+                            <span>How is my data secured?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-a"><p>256-bit AES encryption in transit and at rest. SOC 2 Type II compliant with annual third-party audits. Your documents are stored in isolated, encrypted vaults.</p></div>
+                    </div>
+                    <div class="faq-item" id="faq-2">
+                        <button class="faq-q" onclick="toggleFaq(this)">
+                            <span>What documents do I need?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-a"><p>W-2(s), any 1099 forms, government-issued ID, and your previous year's return. Our portal creates a personalized checklist based on your situation.</p></div>
+                    </div>
+                    <div class="faq-item" id="faq-3">
+                        <button class="faq-q" onclick="toggleFaq(this)">
+                            <span>How long does the process take?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-a"><p>Most returns are reviewed and filed within 48 hours of document upload. Refunds via direct deposit typically arrive in 10–21 days.</p></div>
+                    </div>
+                    <div class="faq-item" id="faq-4">
+                        <button class="faq-q" onclick="toggleFaq(this)">
+                            <span>Can I talk directly to my CPA?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-a"><p>Absolutely. Every client gets a dedicated CPA. Message them anytime through our secure portal. Most responses within a few hours on business days.</p></div>
+                    </div>
+                    <div class="faq-item" id="faq-5">
+                        <button class="faq-q" onclick="toggleFaq(this)">
+                            <span>What if I get audited?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-a"><p>All packages include audit protection. If the IRS contacts you about a return we prepared, we represent you and handle all correspondence at no extra charge.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="final-cta">
+            <div class="container">
+                <div class="cta-block fade-in">
+                    <h2>Ready to file?</h2>
+                    <p>Join 2,500+ clients who trust us with their taxes.</p>
+                    <div class="cta-form">
+                        <input type="email" placeholder="Enter your email" id="newsletter-email">
+                        <button class="btn-primary" id="newsletter-submit" onclick="handleSubmit()">Get Started</button>
+                    </div>
+                    <span class="cta-note">Free consultation. No credit card required.</span>
                 </div>
             </div>
         </section>
@@ -118,37 +443,146 @@
             <div class="footer-brand">
                 <div class="brand-logo">
                     <svg width="24" height="18" viewBox="0 0 36 28" fill="currentColor">
-                        <rect x="0" y="0" width="10" height="5" />
-                        <rect x="13" y="0" width="10" height="5" />
-                        <rect x="26" y="0" width="10" height="5" />
-                        <rect x="0" y="8" width="10" height="5" />
-                        <rect x="13" y="8" width="10" height="5" />
-                        <rect x="26" y="8" width="10" height="5" />
-                        <rect x="0" y="16" width="10" height="5" />
-                        <rect x="13" y="16" width="10" height="5" />
-                        <rect x="26" y="16" width="10" height="5" />
-                        <rect x="0" y="24" width="10" height="5" />
-                        <rect x="13" y="24" width="10" height="5" />
-                        <rect x="26" y="24" width="10" height="5" />
+                        <rect x="0" y="0" width="10" height="5" /><rect x="13" y="0" width="10" height="5" /><rect x="26" y="0" width="10" height="5" />
+                        <rect x="0" y="8" width="10" height="5" /><rect x="13" y="8" width="10" height="5" /><rect x="26" y="8" width="10" height="5" />
+                        <rect x="0" y="16" width="10" height="5" /><rect x="13" y="16" width="10" height="5" /><rect x="26" y="16" width="10" height="5" />
+                        <rect x="0" y="24" width="10" height="5" /><rect x="13" y="24" width="10" height="5" /><rect x="26" y="24" width="10" height="5" />
                     </svg>
                     <span class="brand-name">Tax Service Express</span>
                 </div>
                 <p>Modern tax preparation for the digital age.</p>
             </div>
-            <div class="footer-contact">
-                <p><strong>San Diego Office</strong></p>
-                <p>5215 Lovelock Street<br>San Diego, California</p>
-                <p>(619) 380-2600</p>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About</a><a href="#">Careers</a><a href="#">Blog</a>
             </div>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Client Portal Login</a>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">Help Center</a><a href="#">Contact</a><a href="#">Security</a>
+            </div>
+            <div class="footer-col">
+                <h4>San Diego Office</h4>
+                <p>5215 Lovelock Street<br>San Diego, CA 92105</p>
+                <p><a href="tel:6193802600">(619) 380-2600</a></p>
             </div>
         </div>
         <div class="container footer-bottom">
             <p>&copy; 2026 Tax Service Express. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a>
+            </div>
         </div>
     </footer>
+
+    <script>
+    // ──── Typewriter effect on the background form ────
+    document.querySelectorAll('.typewriter').forEach(el => {
+        const text = el.dataset.text;
+        const delay = parseInt(el.dataset.delay || 0);
+        setTimeout(() => {
+            let i = 0;
+            el.classList.add('typing');
+            const interval = setInterval(() => {
+                el.textContent = text.slice(0, ++i);
+                if (i >= text.length) { clearInterval(interval); el.classList.remove('typing'); }
+            }, 60);
+        }, delay);
+    });
+
+    // ──── Checkbox animation ────
+    document.querySelectorAll('.form-checkbox').forEach(el => {
+        const delay = parseInt(el.dataset.delay || 0);
+        setTimeout(() => {
+            if (el.classList.contains('checked')) {
+                el.textContent = '☑';
+                el.classList.add('is-checked');
+            }
+        }, delay);
+    });
+
+    // ──── Number counters on the form ────
+    document.querySelectorAll('.counter').forEach(el => {
+        const target = parseInt(el.dataset.target);
+        const delay = parseInt(el.dataset.delay || 0);
+        setTimeout(() => {
+            const duration = 1200;
+            const start = performance.now();
+            function tick(now) {
+                const p = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - p, 3);
+                el.textContent = '$' + Math.floor(eased * target).toLocaleString();
+                if (p < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }, delay);
+    });
+
+
+
+    // ──── Scroll fade-in ────
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    // ──── FAQ Accordion ────
+    function toggleFaq(btn) {
+        const item = btn.parentElement;
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => { el.classList.remove('open'); el.querySelector('.faq-icon').textContent = '+'; });
+        if (!wasOpen) { item.classList.add('open'); item.querySelector('.faq-icon').textContent = '−'; }
+    }
+
+    // ──── Header shrink ────
+    window.addEventListener('scroll', () => {
+        document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ──── Smooth scroll ────
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+        });
+    });
+
+    // ──── Newsletter ────
+    function handleSubmit() {
+        const input = document.getElementById('newsletter-email');
+        const btn = document.getElementById('newsletter-submit');
+        if (input.value.includes('@')) {
+            btn.textContent = '✓ You\'re in!';
+            btn.style.background = '#2CE16A';
+            btn.style.color = '#000';
+            input.disabled = true;
+        }
+    }
+
+    // Smooth Marquee with RequestAnimationFrame
+    const marqueeContent = document.querySelector('.marquee-content');
+    if (marqueeContent) {
+        let offset = 0;
+        let lastTime = performance.now();
+        const pixelsPerSecond = 50; 
+
+        function animateMarquee(time) {
+            const deltaTime = time - lastTime;
+            lastTime = time;
+            
+            // Limit deltaTime to prevent huge jumps if tab was inactive
+            if (deltaTime < 100) {
+                offset -= (pixelsPerSecond * deltaTime) / 1000;
+            }
+            
+            if (offset <= -(marqueeContent.scrollWidth / 2)) {
+                offset += (marqueeContent.scrollWidth / 2);
+            }
+            marqueeContent.style.transform = `translate3d(${offset}px, 0, 0)`;
+            requestAnimationFrame(animateMarquee);
+        }
+        
+        requestAnimationFrame(animateMarquee);
+    }
+    </script>
 </body>
 </html>

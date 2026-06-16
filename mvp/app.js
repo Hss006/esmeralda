@@ -1,6 +1,6 @@
 // State Management
 const state = {
-    currentView: 'home',
+    currentView: 'login',
     progress: 45,
     w2Uploaded: false,
     selectedPackage: null
@@ -19,7 +19,7 @@ const elements = {
 const app = {
     init() {
         this.setupNavigation();
-        this.renderView('home');
+        this.navigate('login');
         
         elements.backBtn.addEventListener('click', () => {
             this.navigate('home');
@@ -48,7 +48,7 @@ const app = {
         });
 
         // Header Logic
-        if (view === 'home') {
+        if (view === 'home' || view === 'login') {
             elements.header.classList.add('hidden');
         } else {
             elements.header.classList.remove('hidden');
@@ -58,9 +58,16 @@ const app = {
                 'services': '',
                 'booking': 'Book a Consultation',
                 'vault': 'Document Vault',
-                'profile': 'Profile'
+                'profile': 'Profile',
+                'messages': 'Messages'
             };
-            elements.headerTitle.textContent = titles[view];
+            elements.headerTitle.textContent = titles[view] || '';
+        }
+
+        // Hide bottom nav on login screen
+        const bottomNav = document.getElementById('bottom-nav');
+        if (bottomNav) {
+            bottomNav.style.display = view === 'login' ? 'none' : 'flex';
         }
 
         this.renderView(view);
@@ -146,6 +153,18 @@ const app = {
         }, 300);
     },
 
+    selectDate(element) {
+        const bubbles = document.querySelectorAll('.date-bubble');
+        bubbles.forEach(b => b.classList.remove('active'));
+        element.classList.add('active');
+    },
+
+    selectTime(element) {
+        const buttons = document.querySelectorAll('.time-btn');
+        buttons.forEach(b => b.classList.remove('active'));
+        element.classList.add('active');
+    },
+
     confirmAppointment() {
         const btn = document.querySelector('.btn-primary');
         const originalText = btn.innerHTML;
@@ -155,6 +174,36 @@ const app = {
         setTimeout(() => {
             this.navigate('home');
         }, 1500);
+    },
+
+    handleChatInput(event) {
+        if (event.key === 'Enter') {
+            this.sendMessage();
+        }
+    },
+
+    sendMessage() {
+        const input = document.getElementById('chat-input');
+        if (!input || !input.value.trim()) return;
+
+        const text = input.value.trim();
+        input.value = '';
+
+        const container = document.getElementById('chat-container');
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+        const html = `
+            <div class="chat-message sent">
+                <div class="chat-bubble">
+                    <p>${text}</p>
+                    <span class="chat-time">${timeStr}</span>
+                </div>
+            </div>
+        `;
+
+        container.insertAdjacentHTML('beforeend', html);
+        container.scrollTop = container.scrollHeight;
     },
 
     simulateUpload(inputElement) {
@@ -192,8 +241,56 @@ const app = {
                 }, 500);
             }
         }, 150);
+    },
+
+    editProfileField(fieldId) {
+        const textEl = document.getElementById(`profile-${fieldId}-text`);
+        const inputEl = document.getElementById(`profile-${fieldId}-input`);
+        const btn = document.getElementById(`btn-edit-${fieldId}`);
+
+        if (btn.textContent === 'Edit') {
+            textEl.classList.add('hidden');
+            inputEl.classList.remove('hidden');
+            inputEl.focus();
+            btn.textContent = 'Save';
+            btn.style.color = 'var(--primary)';
+        } else {
+            textEl.innerHTML = inputEl.value.replace(/, /g, '<br>'); // Simple formatting for address
+            textEl.classList.remove('hidden');
+            inputEl.classList.add('hidden');
+            btn.textContent = 'Edit';
+            btn.style.color = 'var(--text-muted)';
+        }
+    },
+
+    login() {
+        // Simple mock login
+        const btn = document.querySelector('.login-btn');
+        if(btn) {
+            btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Signing In...`;
+        }
+        setTimeout(() => {
+            this.navigate('home');
+        }, 1000);
+    },
+
+    logout() {
+        this.navigate('login');
     }
 };
+
+// Listen for messages from the parent wrapper to toggle tour arrows securely
+window.addEventListener('message', (event) => {
+    if (event.data === 'showArrows') {
+        document.body.classList.add('show-tour-arrows');
+        // Navigate to home so the tour arrows are visible on the home buttons
+        app.navigate('home');
+    } else if (event.data === 'hideArrows') {
+        document.body.classList.remove('show-tour-arrows');
+        // Restore login as the default view after the tour ends
+        app.navigate('login');
+    }
+});
 
 // Initialize App
 document.addEventListener('DOMContentLoaded', () => {

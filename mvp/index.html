@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
     <div id="mobile-container">
@@ -32,6 +32,10 @@
                 <span>Services</span>
             </button>
             <button class="nav-item" data-view="vault">
+                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="#FFD700" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="floating-arrow arrow-bounce-2" style="top: -90px; left: -20px;">
+                    <path d="M 20 10 Q 30 60 80 80" />
+                    <polyline points="60 85 80 80 75 60" />
+                </svg>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h10"/><path d="M9 4v16"/><path d="m3 9 3-3 3 3"/></svg>
                 <span>Vault</span>
             </button>
@@ -82,6 +86,10 @@
 
             <div class="grid-2x2">
                 <div class="card action-card" onclick="app.navigate('vault')">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="#FFD700" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="floating-arrow arrow-bounce-1" style="top: -60px; right: -20px;">
+                        <path d="M 80 10 Q 70 60 20 80" />
+                        <polyline points="40 85 20 80 25 60" />
+                    </svg>
                     <div class="icon-circle">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
                     </div>
@@ -94,7 +102,7 @@
                     </div>
                     <h4>Talk to an expert</h4>
                 </div>
-                <div class="card action-card">
+                <div class="card action-card" onclick="app.navigate('messages')">
                     <div class="icon-circle">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                         <span class="badge"></span>
@@ -171,19 +179,19 @@
             </div>
             
             <div class="calendar-strip">
-                <div class="date-bubble">
+                <div class="date-bubble" onclick="app.selectDate(this)">
                     <span class="day">MON</span>
                     <span class="num">14</span>
                 </div>
-                <div class="date-bubble active">
+                <div class="date-bubble active" onclick="app.selectDate(this)">
                     <span class="day">TUE</span>
                     <span class="num">15</span>
                 </div>
-                <div class="date-bubble">
+                <div class="date-bubble" onclick="app.selectDate(this)">
                     <span class="day">WED</span>
                     <span class="num">16</span>
                 </div>
-                <div class="date-bubble">
+                <div class="date-bubble" onclick="app.selectDate(this)">
                     <span class="day">THU</span>
                     <span class="num">17</span>
                 </div>
@@ -194,12 +202,12 @@
             </div>
 
             <div class="time-grid">
-                <button class="time-btn">09:00 AM</button>
-                <button class="time-btn active">10:00 AM</button>
-                <button class="time-btn">11:30 AM</button>
-                <button class="time-btn">01:00 PM</button>
-                <button class="time-btn">02:30 PM</button>
-                <button class="time-btn">04:00 PM</button>
+                <button class="time-btn" onclick="app.selectTime(this)">09:00 AM</button>
+                <button class="time-btn active" onclick="app.selectTime(this)">10:00 AM</button>
+                <button class="time-btn" onclick="app.selectTime(this)">11:30 AM</button>
+                <button class="time-btn" onclick="app.selectTime(this)">01:00 PM</button>
+                <button class="time-btn" onclick="app.selectTime(this)">02:30 PM</button>
+                <button class="time-btn" onclick="app.selectTime(this)">04:00 PM</button>
             </div>
 
             <div class="sticky-footer">
@@ -267,6 +275,30 @@
         </div>
     </template>
 
+    <template id="tpl-messages">
+        <div class="view messages-view">
+            <div class="chat-container" id="chat-container">
+                <div class="chat-message received">
+                    <img src="https://i.pravatar.cc/150?img=47" alt="Sarah, CPA" class="chat-avatar">
+                    <div class="chat-bubble">
+                        <p>Hi Alex! I reviewed your 1099 form. Looks good, just waiting on the W-2.</p>
+                        <span class="chat-time">10:45 AM</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <button class="icon-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                </button>
+                <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="app.handleChatInput(event)">
+                <button class="send-btn" onclick="app.sendMessage()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+            </div>
+        </div>
+    </template>
+
     <template id="tpl-profile">
         <div class="view profile-view">
             <div class="profile-header">
@@ -304,9 +336,10 @@
                 <div class="detail-row">
                     <div class="detail-info">
                         <label>Home Address</label>
-                        <p>123 Calm Lane<br>Apt 4B<br>Seattle, WA 98101</p>
+                        <p id="profile-address-text">123 Calm Lane<br>Apt 4B<br>Seattle, WA 98101</p>
+                        <input type="text" id="profile-address-input" class="hidden" value="123 Calm Lane, Apt 4B, Seattle, WA 98101" style="font-size: 14px; padding: 4px; border: 1px solid #E5E7EB; border-radius: 4px; width: 100%;">
                     </div>
-                    <button class="text-btn">Edit</button>
+                    <button class="text-btn" id="btn-edit-address" onclick="app.editProfileField('address')">Edit</button>
                 </div>
             </div>
 
@@ -319,9 +352,10 @@
                 <div class="detail-row">
                     <div class="detail-info">
                         <label>Bank Name</label>
-                        <p>Chase Bank</p>
+                        <p id="profile-bank-text">Chase Bank</p>
+                        <input type="text" id="profile-bank-input" class="hidden" value="Chase Bank" style="font-size: 14px; padding: 4px; border: 1px solid #E5E7EB; border-radius: 4px; width: 100%;">
                     </div>
-                    <button class="text-btn">Edit</button>
+                    <button class="text-btn" id="btn-edit-bank" onclick="app.editProfileField('bank')">Edit</button>
                 </div>
                 
                 <div class="detail-row">
@@ -352,13 +386,48 @@
                 </div>
             </div>
 
-            <button class="btn-outline logout-btn">
+            <button class="btn-outline logout-btn" onclick="app.logout()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
                 Sign Out
             </button>
         </div>
     </template>
 
-    <script src="app.js"></script>
+    <template id="tpl-login">
+        <div class="view login-view">
+            <div class="login-header">
+                <svg width="40" height="32" viewBox="0 0 36 28" fill="var(--primary)" style="margin-bottom: 24px;">
+                    <rect x="0" y="0" width="10" height="5" />
+                    <rect x="13" y="0" width="10" height="5" />
+                    <rect x="26" y="0" width="10" height="5" />
+                    <rect x="0" y="8" width="10" height="5" />
+                    <rect x="13" y="8" width="10" height="5" />
+                    <rect x="26" y="8" width="10" height="5" />
+                    <rect x="0" y="16" width="10" height="5" />
+                    <rect x="13" y="16" width="10" height="5" />
+                    <rect x="26" y="16" width="10" height="5" />
+                    <rect x="0" y="24" width="10" height="5" />
+                    <rect x="13" y="24" width="10" height="5" />
+                    <rect x="26" y="24" width="10" height="5" />
+                </svg>
+                <h2>Welcome Back</h2>
+                <p>Sign in to your Tax Service Express account to manage your documents.</p>
+            </div>
+            
+            <div class="login-form">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="alex.doe@example.com" value="alex.doe@example.com">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••" value="password123">
+                </div>
+                <button class="btn-primary login-btn" onclick="app.login()">Sign In</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="app.js?v=7"></script>
 </body>
 </html>

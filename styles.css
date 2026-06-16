@@ -146,3 +146,108 @@ body {
     border: none;
     border-radius: 28px; /* Inner radius */
 }
+
+/* Tour Styles */
+.tour-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    pointer-events: auto; /* Block clicks on the background */
+    transition: opacity 0.3s ease;
+}
+
+.tour-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Elevate the top-nav above the overlay during the tour */
+body.tour-active .top-nav {
+    z-index: 1001;
+    background: transparent;
+    border-bottom-color: transparent;
+    box-shadow: none;
+}
+
+/* Dim the non-highlighted items in the top-nav */
+body.tour-active .logo,
+body.tour-active .tab-btn:not(.tour-highlight) {
+    opacity: 0.3;
+    pointer-events: none; /* Prevent clicking other tabs during tour */
+}
+
+/* Prevent tab-pane opacity transitions from creating stacking contexts during tour */
+body.tour-active .tab-pane.active {
+    transition: none !important;
+}
+
+/* Elevate the phone mockup so it is NOT greyed out by the overlay */
+body.tour-active .phone-mockup {
+    z-index: 1001;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.2), 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Add a subtle glow */
+}
+
+.tour-highlight {
+    position: relative;
+    z-index: 1002 !important;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.2), 0 0 20px rgba(255,255,255,0.2);
+    background: #FFFFFF !important;
+    color: #111827 !important;
+    pointer-events: auto; /* Ensure clickable */
+    border-radius: 6px;
+}
+
+.tour-tooltip {
+    position: fixed;
+    z-index: 1002;
+    background: #111827;
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    width: 250px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.tour-tooltip.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.tour-tooltip p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #F9FAFB;
+}
+
+.tour-tooltip::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent #111827 transparent;
+}
+
+.btn-tour {
+    background: #2CE16A;
+    color: #111827;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.btn-tour:hover {
+    background: #24C95D;
+}

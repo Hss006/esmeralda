@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
     <nav class="top-nav">
@@ -57,7 +57,7 @@
             <div class="phone-mockup-wrapper">
                 <div class="phone-mockup">
                     <div class="phone-notch"></div>
-                    <iframe src="mvp/index.html" frameborder="0"></iframe>
+                        <iframe src="mvp/index.html?v=3" class="device-screen" title="Mobile App Prototype"></iframe>
                 </div>
             </div>
         </div>
@@ -65,11 +65,20 @@
         <!-- Landing Page Tab -->
         <div id="tab-landing" class="tab-pane">
             <div class="iframe-wrapper full-width">
-                <iframe src="landing/index.html" frameborder="0"></iframe>
+                <iframe src="landing/index.html?v=18" frameborder="0"></iframe>
             </div>
         </div>
     </main>
 
-    <script src="app.js"></script>
+    <!-- Tour Overlay and Tooltip -->
+    <div id="tour-overlay" class="tour-overlay hidden"></div>
+    <div id="tour-tooltip" class="tour-tooltip hidden">
+        <p id="tour-text"></p>
+        <div class="tour-buttons">
+            <button id="tour-next" class="btn-tour">Got it!</button>
+        </div>
+    </div>
+
+    <script src="app.js?v=5"></script>
 </body>
 </html>
